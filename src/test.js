@@ -1,12 +1,26 @@
 import React from "react";
 
 /*#__PURE__*/
+
+  function Demo(props) {
+    return /*#__PURE__*/ React.createElement("div", null, props.name);
+  }
+  
+  class Test extends React.Component {
+    render() {
+      return /*#__PURE__*/ React.createElement("div", null, "test");
+    }
+  }
+  
+  /*#__PURE__*/
 console.log(
   React.createElement(
     "div",
     {
-      className: "container",
+      className: "container"
     },
+    /*#__PURE__*/ React.createElement(Demo, null),
+    /*#__PURE__*/ React.createElement(Test, null),
     /*#__PURE__*/ React.createElement("h1", null, "\u4F60\u597D Tiny React"),
     /*#__PURE__*/ React.createElement(
       "h2",
@@ -39,7 +53,7 @@ console.log(
     /*#__PURE__*/ React.createElement(
       "button",
       {
-        onClick: () => alert("你好"),
+        onClick: () => alert("你好")
       },
       "\u70B9\u51FB\u6211"
     ),
@@ -50,4 +64,5 @@ console.log(
     ),
     "2, 3"
   )
+  
 );

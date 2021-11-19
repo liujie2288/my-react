@@ -8,26 +8,32 @@
 
 ```javascript
 let domNode;
-  if (virtualDom.type !== "text") {
-    // 创建元素
-    const element = document.createElement(virtualDom.type);
-    domNode = element;
-  } else {
-    // 创建文本节点
-    const textNode = document.createTextNode(virtualDom.props.textContent);
-    domNode = textNode;
-  }
-  // 递归处理子元素
-  virtualDom.children.forEach((child) => {
-    render(child, domNode);
-  });
-  // 添加元素
-  container.appendChild(domNode);
+if (virtualDom.type !== "text") {
+  // 创建元素
+  const element = document.createElement(virtualDom.type);
+  domNode = element;
+} else {
+  // 创建文本节点
+  const textNode = document.createTextNode(virtualDom.props.textContent);
+  domNode = textNode;
+}
+// 递归处理子元素
+virtualDom.children.forEach((child) => {
+  render(child, domNode);
+});
+// 添加元素
+container.appendChild(domNode);
 ```
 
 2. 为元素设置属性
 
+渲染元素有两种情况：
+
+a. 渲染原生的 html 标签
+b. 渲染 React 组件
+
 ```javascript
+function (){
 Object.keys(virtualDom.props).forEach((propName) => {
   const propValue = virtualDom.props[propName];
   // 单独处理事件
@@ -45,4 +51,5 @@ Object.keys(virtualDom.props).forEach((propName) => {
     element.setAttribute(propName, propValue);
   }
 });
+}
 ```

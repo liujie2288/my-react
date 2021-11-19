@@ -12,7 +12,7 @@ export default function createElement(type, props, ...children) {
   });
   return {
     type,
-    // 每个元素下面都存在children来记录当前元素的子元素
+    // 每个React元素props都存在children来记录当前元素的子元素
     props: { children, ...props },
     children,
   };
