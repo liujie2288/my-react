@@ -21,5 +21,33 @@ const virtualDom = (
   </div>
 );
 
-console.log(virtualDom);
-MyReact.render(virtualDom, container);
+// console.log(virtualDom);
+// ===== 渲染victualDom start  =====
+
+// MyReact.render(virtualDom, container);
+
+// ===== 渲染victualDom end  =====
+
+// ===== 渲染React组件 start  =====
+
+function Test(props) {
+  return <div>这是函数组件,{props.name}开发</div>;
+}
+
+class Test1 extends MyReact.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        这是类组件,
+        <Test />
+      </div>
+    );
+  }
+}
+
+MyReact.render(<Test1 />, container);
+
+// ===== 渲染React组件 end  =====

@@ -1,7 +1,7 @@
 export default function createElement(type, props, ...children) {
   //  过滤布尔值以及为null的元素(React中不渲染)
   children = children.filter(
-    (child) => typeof child !== "boolean" || child === null
+    (child) => typeof child !== "boolean" && child !== null && child !== undefined
   );
   // 处理纯文本元素，转换为对象类型（统一元素类型方便处理）
   children = children.map((child) => {
