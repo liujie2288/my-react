@@ -1,7 +1,7 @@
 import renderElement from "./renderElement";
 import setAttribute from "./setAttribute";
 // 渲染原生html元素
-export default function renderNativeElement(virtualDom, container) {
+export default function renderNativeElement(virtualDom, container, oldDom) {
   let domElement;
   if (virtualDom.type !== "text") {
     // 创建元素
@@ -22,4 +22,3 @@ export default function renderNativeElement(virtualDom, container) {
 
   container.appendChild(domElement);
 }
-

@@ -127,3 +127,11 @@ MyReact.render(MyReact.createElement(Test, { name: react }));
 ```
 
 传递到`createElement`中的表达式(`props.name`)已经是一个确定好了的值，所以`createElement`会根据具体值来创建对应的文本节点。
+
+## virtualDom 对比
+
+在将 virtualDom 转换为真实 Dom 时，有两种渲染方式，一种是初始化直接渲染所有节点，第二种是在原先的渲染基础上做更新。上面已经介绍了初始化创建所有节点的方法，现在来说一说更新。
+
+更新需要比对前后 virtualDom 并找到差异，然后更新有差异的元素/节点。
+
+更新前的 victualDom 如何获取？
